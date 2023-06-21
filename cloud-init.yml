@@ -1,0 +1,19 @@
+#cloud-config
+users:
+  - name: x # username
+    plain_text_passwd: 'y' # password
+    groups: root # 
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: false
+
+hostname: ubuntu21
+
+bootcmd:
+  - dhclient
+packages:
+  - docker.io
+  - apache2
+  - mysql-client
+  - libmysqlclient-dev
+  - mysql-server
